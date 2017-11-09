@@ -114,3 +114,11 @@ void ARProcessor::drawPointCloud(){
         ofLog(OF_LOG_WARNING, "Debug Mode not set");
     }
 }
+
+//======== HitTest API ============ //
+
+//void hitTest( int x, int y )
+//{
+//    NSArray<ARHitTestResult *> hits = [session.currentFrame hitTest:(CGPoint)point types:(ARHitTestResultType)types];
+//}
+

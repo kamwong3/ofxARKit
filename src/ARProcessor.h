@@ -146,6 +146,9 @@ public:
     ofFbo getFBO(){
         return camera->getFBO();
     }
+    
+    //======== HitTest API ============ //
+    //void hitTest( int x, int y );
 };
 
 
