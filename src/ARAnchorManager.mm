@@ -168,8 +168,10 @@ namespace ARCore {
                     PlaneAnchorObject plane;
                     
                     plane.transform = paTransform;
-                    plane.position.x = -extent.x / 2;
-                    plane.position.y = -extent.y / 2;
+                    //plane.position.x = -extent.x / 2;
+                    //plane.position.y = -extent.y / 2;
+                    plane.position.x = center.x; // Kam: why not the center of plane?
+                    plane.position.y = center.y; // Kam: why not the center of plane?
                     plane.width = extent.x;
                     plane.height = extent.z;
                     plane.uuid = anchor.identifier;
@@ -181,11 +183,13 @@ namespace ARCore {
                 // means item is found, check to see if we need to update
                 if(it != planes.end()){
                     if(shouldUpdatePlanes){
-
+                        
                         planes[index].transform = paTransform;
                         
-                        planes[index].position.x = -extent.x / 2;
-                        planes[index].position.y = -extent.y / 2;
+//                        planes[index].position.x = -extent.x / 2;
+//                        planes[index].position.y = -extent.y / 2;
+                        planes[index].position.x = center.x; // Kam: why not the center of plane?
+                        planes[index].position.y = center.y; // Kam: why not the center of plane?
                         planes[index].width = extent.x;
                         planes[index].height = extent.z;
                         planes[index].uuid = anchor.identifier;
@@ -270,9 +274,10 @@ namespace ARCore {
             ofMultMatrix(anchor.transform);
             ofFill();
             ofSetColor(102,216,254,100);
-            ofRotateX(90);
             ofTranslate(anchor.position.x,anchor.position.y);
-            ofDrawRectangle(-anchor.position.x/2,-anchor.position.z/2,0,anchor.width,anchor.height);
+            ofRotateX(90);
+            //ofDrawRectangle(-anchor.position.x/2,-anchor.position.z/2,0,anchor.width,anchor.height);
+            ofDrawRectangle(-anchor.width/2,-anchor.height/2,0,anchor.width,anchor.height);
             ofSetColor(255);
             ofPopMatrix();
             
